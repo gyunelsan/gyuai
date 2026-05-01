@@ -1,18 +1,18 @@
-# Gyu AI 🤖✦
+# Gyu AI
 
 A modern, responsive AI chat assistant built with **Next.js 14 (App Router)**, **TypeScript**, **Tailwind CSS**, and **Zustand**.
 
 ---
 
-## ✨ Features
+##  Features
 
-- 🎨 **4 Themes** — Dark, Light, Pink, Ocean — with animated wave backgrounds
-- 🌍 **3 Languages** — English, Russian, Azerbaijani
-- 💬 **Chat history** — persistent via `localStorage`, grouped by Today / Yesterday / Older
-- 📱 **Fully responsive** — sidebar collapses on mobile, hamburger menu
-- ⚡ **Smooth animations** — message fade-in, floating orb, typing indicator
-- ⚙️ **Settings modal** — theme & language switcher in one place
-- 🔄 **Zustand state** — clean, scalable state management with persistence
+-  **8 Themes** — Dark, Light, Pink, Ocean — with animated wave backgrounds
+-  **3 Languages** — English, Russian, Azerbaijani
+-  **Chat history** — persistent via `localStorage`, grouped by Today / Yesterday / Older
+-  **Fully responsive** — sidebar collapses on mobile, hamburger menu
+-  **Smooth animations** — message fade-in, floating orb, typing indicator
+-  **Settings modal** — theme & language switcher in one place
+-  **Zustand state** — clean, scalable state management with persistence
 
 ---
 
@@ -63,47 +63,6 @@ gyu-ai/
 └── package.json
 ```
 
----
-
-## 🚀 Getting Started
-
-```bash
-# 1. Install dependencies
-npm install
-
-# 2. Start dev server
-npm run dev
-
-# 3. Open in browser
-# http://localhost:3000
-```
-
----
-
-## 🎨 Theme System
-
-Themes are driven by CSS custom properties set on `:root`. Each theme maps variable names → values in `src/lib/themes.ts`. Switching theme = updating those vars instantly, with smooth CSS transitions.
-
-| Variable | Description |
-|---|---|
-| `--color-base` | Page background |
-| `--color-sidebar` | Sidebar background |
-| `--color-accent` | Primary accent color |
-| `--color-accent-2` | Secondary accent / gradient end |
-| `--color-msg-user` | User bubble background |
-
----
-
-## 🌍 Adding a Language
-
-1. Add the language code to `src/types/index.ts` → `Language` type
-2. Add translations in `src/lib/translations.ts`
-3. Add theme labels in `src/lib/themes.ts` → `themeLabels` and `languageLabels`
-4. Add AI responses in `src/lib/aiResponses.ts`
-5. Add the language entry in `src/components/layout/TopBar.tsx` and `src/components/settings/LanguageSwitcher.tsx`
-
----
-
 ## 🔌 Connecting a Real AI API
 
 Replace the mock in `src/hooks/useChat.ts` with a real API call:
@@ -122,7 +81,7 @@ Create `src/app/api/chat/route.ts` to proxy your AI provider (OpenAI, Anthropic,
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 | Tool | Purpose |
 |---|---|
@@ -130,7 +89,7 @@ Create `src/app/api/chat/route.ts` to proxy your AI provider (OpenAI, Anthropic,
 | TypeScript | Type safety |
 | Tailwind CSS | Utility-first styling |
 | Zustand | State management + persistence |
-| Framer Motion | (installed, ready to use for advanced animations) |
+| Framer Motion |
 | Lucide React | Icons |
 
 ---
