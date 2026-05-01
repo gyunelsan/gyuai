@@ -52,7 +52,7 @@ export function Sidebar({ onOpenSettings }: SidebarProps) {
 
   return (
     <>
-=
+
       {sidebarOpen && (
         <div
           className="fixed inset-0 z-[9] bg-black/50 lg:hidden"

@@ -1,9 +1,7 @@
-
 "use client";
 
 import { useCallback } from "react";
 import { useAppStore } from "@/stores/useAppStore";
-import { getRandomResponse, getTypingDelay } from "@/lib/aiResponses";
 
 export function useChat() {
   const {
@@ -11,9 +9,9 @@ export function useChat() {
     setTyping,
     currentChatId,
     newChat,
-    language,
     chats,
     isTyping,
+    language,
   } = useAppStore();
 
   const sendMessage = useCallback(
@@ -22,24 +20,67 @@ export function useChat() {
 
       let chatId = currentChatId;
 
-
       if (!chatId || !chats.find((c) => c.id === chatId)) {
         chatId = newChat();
       }
 
-      addMessage(chatId, { role: "user", text: text.trim() });
-
+      addMessage(chatId, {
+        role: "user",
+        text: text.trim(),
+      });
 
       setTyping(true);
-      const delay = getTypingDelay();
 
-      await new Promise((resolve) => setTimeout(resolve, delay));
+      try {
+        const res = await fetch("/api/chat", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            messages: [
+              {
+                role: "system",
+                content: `
+You are a helpful AI assistant.
+Always respond in this language: ${language}.
+Be natural, clear and conversational.
+                `,
+              },
+              {
+                role: "user",
+                content: text.trim(),
+              },
+            ],
+          }),
+        });
 
-      const response = getRandomResponse(language);
-      addMessage(chatId, { role: "assistant", text: response });
+        const data = await res.json();
+
+        const aiText = data?.message?.content;
+
+        addMessage(chatId, {
+          role: "assistant",
+          text: aiText || "No response",
+        });
+      } catch (err) {
+        addMessage(chatId, {
+          role: "assistant",
+          text: "Error: AI request failed",
+        });
+      }
+
       setTyping(false);
     },
-    [addMessage, setTyping, currentChatId, newChat, language, chats, isTyping]
+    [
+      addMessage,
+      setTyping,
+      currentChatId,
+      newChat,
+      chats,
+      isTyping,
+      language,
+    ]
   );
 
   return { sendMessage };
