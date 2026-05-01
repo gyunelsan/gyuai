@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   description:
     "Gyu AI is a modern, responsive AI chat assistant with multi-theme support and multilingual UI.",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/gyuai-icon.svg",
   },
 };
 
