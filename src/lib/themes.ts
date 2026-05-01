@@ -14,9 +14,9 @@ export const themeConfigs: ThemeConfig[] = [
 ];
 
 export const themeLabels: Record<string, Record<Theme, string>> = {
-  en: { dark: "Dark", light: "Light", pink: "Pink", ocean: "Ocean" },
-  ru: { dark: "Тёмная", light: "Светлая", pink: "Розовая", ocean: "Океан" },
-  az: { dark: "Tünd", light: "İşıqlı", pink: "Çəhrayı", ocean: "Okean" },
+  en: { dark: "Dark", light: "Light", pink: "Pink", ocean: "Ocean", sunset: "Sunset", forest:"Forest", midnight:"Midnight", cyber:"Cyber" },
+  ru: { dark: "Тёмная", light: "Светлая", pink: "Розовая", ocean: "Океан", sunset: "Закат", forest: "Лес", midnight:"Полночь", cyber:"Кибер" },
+  az: { dark: "Tünd", light: "İşıqlı", pink: "Çəhrayı", ocean: "Okean", sunset: "Gün batımı", forest: "Meşe", midnight:"Gece yarısı", cyber:"Kiber"},
 };
 
 export const languageLabels: Record<string, Record<string, string>> = {

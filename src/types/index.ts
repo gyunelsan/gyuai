@@ -1,5 +1,13 @@
 
-export type Theme = "dark" | "light" | "pink" | "ocean";
+export type Theme =
+  | "dark"
+  | "light"
+  | "pink"
+  | "ocean"
+  | "sunset"
+  | "forest"
+  | "midnight"
+  | "cyber";
 export type Language = "en" | "ru" | "az";
 
 export interface Message {
@@ -20,7 +28,6 @@ export interface Chat {
 export interface ThemeConfig {
   id: Theme;
   label: string;
-  emoji: string;
   bg: string;
 }
 
